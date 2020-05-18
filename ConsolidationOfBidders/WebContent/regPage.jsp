@@ -5,17 +5,19 @@
 <body>
 <h1 style="text-align:center">BIDDER REGISTRATION FORM</h1>
 <br/>
-<br/>
-<br/>
 <div>
-<form action="confirmation.jsp">
-NAME:<br/><input type="text" name="name"/>
+<form action="controllerservlet" method="GET">
+<input type="hidden" name="command" value="REG" />
+FIRST NAME:<br/><input type="text" name="fname"/>
+<br/>
+<br/>
+LAST NAME:<br/><input type="text" name="lname"/>
 <br/>
 <br/>
 EMAIL:<br/><input type="email" name="email"/>
 <br/>
 <br/>
-PHONE NUMBER:<br/><input type="text" name="phone number"/>
+PHONE NUMBER:<br/><input type="number" name="phone number"/>
 <br/>
 <br/>
 BUYER ID:<br/><input type="text" name="buyer id"/>
