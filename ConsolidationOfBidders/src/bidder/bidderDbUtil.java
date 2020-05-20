@@ -82,7 +82,7 @@ public class bidderDbUtil {
 			while(myRs.next())
 			{
 			String pass=myRs.getString("password");
-			if(pass.contentEquals(theBidder.getPassword()))
+			if(pass.equals(theBidder.getPassword()))
 			{
 			   t=1;  
 			}
