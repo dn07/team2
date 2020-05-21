@@ -96,7 +96,42 @@ public class bidderDbUtil {
 			return t;
 				
 }
+	public void addapplication(Bidderapplication thebidder) throws Exception{
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs=null;
 		
+		try {
+			// get db connection
+			myConn = dataSource.getConnection();
+			
+			// create sql for insert
+			String sql = "insert into bidder_application "
+					   + "(item, aadhar, age, address, monthly, bb, pre, buyer_id) "
+					   + "values (?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			myStmt = myConn.prepareStatement(sql);
+			
+			// set the param values for the student
+			myStmt.setString(1, thebidder.getItem());
+			myStmt.setString(2, thebidder.getAadhar());
+			myStmt.setString(3, thebidder.getAge());
+			myStmt.setString(4, thebidder.getAddress());
+			myStmt.setString(5, thebidder.getMonthly());
+			myStmt.setString(6, thebidder.getBb());
+			myStmt.setString(7, thebidder.getPre());
+			myStmt.setString(8, thebidder.getBuyer_id());
+			
+			// execute sql insert
+			myStmt.execute();
+		}
+		finally {
+			// clean up JDBC objects
+			close(myConn, myStmt, myRs);
+		}
+		
+		
+	}	
 }
 	
 

@@ -50,6 +50,8 @@ public class controllerservlet extends HttpServlet {
 			case "LOGIN":
 				loginbidder(request,response);
 				break;
+			case "CONFIRM":
+				bidderapplication(request,response);
 			}
 					
 				
@@ -57,6 +59,20 @@ public class controllerservlet extends HttpServlet {
 		catch (Exception exc) {
 			throw new ServletException(exc);
 		}
+		
+	}
+	private void bidderapplication(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String buyer_id=request.getParameter("buyer id");
+		String item=request.getParameter("rf");
+		String aadhar=request.getParameter("aadhar");
+		String age=request.getParameter("age");
+		String address=request.getParameter("address");
+		String monthly=request.getParameter("salary");
+		String bb=request.getParameter("bank balance");
+		String pre=request.getParameter("prev");
+		Bidderapplication thebidder= new Bidderapplication(buyer_id, item, aadhar, age, address, monthly, bb, pre);
+		bidderdbutil.addapplication(thebidder);
+		
 		
 	}
 
