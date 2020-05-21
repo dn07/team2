@@ -131,7 +131,31 @@ public class bidderDbUtil {
 		}
 		
 		
-	}	
+	}
+	public int loginloanofficer(loanofficer theOfficer) throws SQLException {
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		myConn = dataSource.getConnection();
+		String id=theOfficer.getID();
+		String sql="select * from loan_officer where ID="+'"'+id+'"';
+		myStmt = myConn.prepareStatement(sql);
+		myRs = myStmt.executeQuery(sql);
+		while(myRs.next())
+		{
+		String pass=myRs.getString("password");
+		if(pass.equals(theOfficer.getPassword()))
+		{
+		   t=1;  
+		}
+		else {
+			t=0;
+		}
+		}
+		
+		return t;
+	}
+		
 }
 	
 

@@ -52,6 +52,10 @@ public class controllerservlet extends HttpServlet {
 				break;
 			case "CONFIRM":
 				bidderapplication(request,response);
+				break;
+			case "LOAN OFFICER":
+				officerlogin(request,response);
+			
 			}
 					
 				
@@ -61,6 +65,27 @@ public class controllerservlet extends HttpServlet {
 		}
 		
 	}
+
+	private void officerlogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+		String officerId=request.getParameter("officer id");
+		String pass=request.getParameter("pwd");
+		loanofficer theOfficer=new loanofficer(officerId, pass);
+		int r=bidderdbutil.loginloanofficer(theOfficer);
+		if(r==1)
+		{
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/details.jsp");
+			dispatcher.forward(request, response);
+		}
+		if(r==0)
+		{
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/confirmation.jsp");
+			dispatcher.forward(request, response);
+		}
+		
+		
+	}
+
+
 	private void bidderapplication(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String buyer_id=request.getParameter("buyer id");
 		String item=request.getParameter("rf");
@@ -75,6 +100,7 @@ public class controllerservlet extends HttpServlet {
 		
 		
 	}
+
 
 	private void loginbidder(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		String buyerID=request.getParameter("buyer id");
