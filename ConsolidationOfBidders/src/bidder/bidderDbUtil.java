@@ -1,17 +1,19 @@
 package bidder;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
 
+
 public class bidderDbUtil {
 	int t=10;
-	private DataSource dataSource;
+	private  DataSource dataSource;
 	public bidderDbUtil(DataSource theDataSource) {
 		dataSource = theDataSource;
 	}
@@ -152,11 +154,48 @@ public class bidderDbUtil {
 			t=0;
 		}
 		}
+		close(myConn, myStmt, myRs);
 		
 		return t;
 	}
+public  List<Bidderapplication> getBidders() throws SQLException {
 		
-}
+		List<Bidderapplication> bidders = new ArrayList<>();
+		
+		Connection myConn = null;
+		Statement myStmt = null;
+		ResultSet myRs = null;
+		myConn = dataSource.getConnection();
+		String sql = "select * from bidder_application order by buyer_id";
+		myStmt = myConn.createStatement();
+		myRs = myStmt.executeQuery(sql);
+		while (myRs.next()) {
+				
+				
+				String item = myRs.getString("item");
+				String aadhar = myRs.getString("aadhar");
+				String age = myRs.getString("age");
+				String address = myRs.getString("address");
+				String monthly=myRs.getString("monthly");
+				String bb=myRs.getString("bb");
+				String pre=myRs.getString("pre");
+				String buyer_id=myRs.getString("buyer_id");
+				
+				
+				Bidderapplication temp=new Bidderapplication(buyer_id, item, aadhar, age, address, monthly, bb, pre);
+				
+			
+				bidders.add(temp);				
+			}
+			close(myConn, myStmt, myRs);
+			return bidders;		
+		}
+
+			
+	}
+
+		
+
 	
 
 

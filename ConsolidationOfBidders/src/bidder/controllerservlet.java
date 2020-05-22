@@ -1,7 +1,9 @@
 package bidder;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -55,6 +57,8 @@ public class controllerservlet extends HttpServlet {
 				break;
 			case "LOAN OFFICER":
 				officerlogin(request,response);
+			case "VIEW BIDDERS":
+				bidderview(request,response);
 			
 			}
 					
@@ -66,6 +70,21 @@ public class controllerservlet extends HttpServlet {
 		
 	}
 
+	private void bidderview(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//PrintWriter out=response.getWriter();
+		List<Bidderapplication> bidders=bidderdbutil.getBidders();
+		/*for(int i=0;i<bidders.size();i++)
+		{
+			out.println("<br/>"+bidders.get(i).getBuyer_id());
+			out.println("<br/>"+bidders.get(i).getAadhar());
+		}*/
+		request.setAttribute("BIDDER-LIST", bidders);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/bidder-list.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+
+
 	private void officerlogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		String officerId=request.getParameter("officer id");
 		String pass=request.getParameter("pwd");
@@ -73,7 +92,7 @@ public class controllerservlet extends HttpServlet {
 		int r=bidderdbutil.loginloanofficer(theOfficer);
 		if(r==1)
 		{
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/details.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/bidderlist.jsp");
 			dispatcher.forward(request, response);
 		}
 		if(r==0)
