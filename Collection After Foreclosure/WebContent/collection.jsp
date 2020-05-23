@@ -6,7 +6,54 @@
 <link rel="stylesheet" type="text/css"
 	href="//fonts.googleapis.com/css?family=Roboto" />
 <style>
+h1 {
+	font-family: "Roboto";
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 26.4px;
+}
+
+h3 {
+	font-family: "Roboto";
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 15.4px;
+}
+
+p, a {
+	font-family: "Roboto";
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+blockquote {
+	font-family: "Roboto";
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+
+pre {
+	font-family: "Roboto";
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+}
+
 body {
+	margin: 0;
+	font-family: Roboto, Helvetica, sans-serif;
 	background: #4CA1AF; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);
 	/* Chrome 10-25, Safari 5.1-6 */
@@ -77,30 +124,32 @@ button {
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<div class="panel-footer">
-		<h2>Welcome User</h2>
-		<span style="width: 100%;" class="header-footer-item">
-			<button type="button">Back</button>
-		</span>
-	</div>
-	<div class="button-panel">
-		<span class="button-item">
-			<button style="width: 200%;" type="button">15 Days</button>
-		</span> <span class="button-item">
-			<button style="width: 200%; margin-left: 300%;" type="button">5
-				Days</button>
-		</span>
-	</div>
-	<p class="toast-message">
-		Status Changed to <br>Promise To Pay
-	</p>
-	<div class="submit-button">
-		<span style="width: 100%;" class="header-footer-item">
-			<button type="button">Update Status</button>
-		</span>
-	</div>
+	<form action="collectionPage">
+		<div class="panel-footer">
+			<h2>Welcome Collector</h2>
+			<span style="width: 100%;" class="header-footer-item">
+				<button type="button" name="logout">Logout</button>
+			</span>
+		</div>
+		<div class="button-panel">
+			<span class="button-item"> <button style="width: 200%;" type="button"
+						name="checkStatus">Check Status</button>
+			</span> <span class="button-item">
+				<a href="updateStatus.jsp"
+				target="_blank"><button style="width: 200%; margin-left: 300%;" type="button"
+					name="changeStatus">Change Status</button></a>
+			</span>
+		</div>
+		<!-- <p class="toast-message">
+			Status Changed to <br>Promise To Pay
+		</p>
+		<div class="submit-button">
+			<span style="width: 100%;" class="header-footer-item">
+				<button type="button" name="updateStatus">Update Status</button>
+			</span>
+		</div> -->
+	</form>
 	<div class="footer"><%@ include file="footer.jsp"%>
 	</div>
-
 </body>
 </html>
