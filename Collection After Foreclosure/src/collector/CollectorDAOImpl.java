@@ -44,5 +44,4 @@ public class CollectorDAOImpl implements CollectorDAO {
 		}
 		return c;
 	}
-
 }
