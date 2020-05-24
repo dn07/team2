@@ -22,11 +22,13 @@ public class UpdateStatus extends HttpServlet {
 		String cid = request.getParameter("cid");
 		String lid = request.getParameter("lid");
 		double amount = Double.parseDouble(request.getParameter("amount"));
+		// System.out.println(cid + " " + lid + " " + amount);
 		String submitType = request.getParameter("submit");
 		Collector c = new Collector();
 		c = cs.getCollector(cid, lid, amount);
 		if (submitType.equals("Submit")) {
-			request.setAttribute("message", "Data Entry Successful!" + c.getAmount());
+			request.setAttribute("message",
+					"Data Entry Successful! Loan amount reduced by: " + amount + " for Customer ID: " + cid);
 			request.getRequestDispatcher("updateStatus.jsp").forward(request, response);
 		} else {
 			request.setAttribute("message", "Data Not Found!");

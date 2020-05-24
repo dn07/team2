@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.mysql.jdbc.Statement;
+
 public class CollectorDAOImpl implements CollectorDAO {
 	static Connection con;
 	static PreparedStatement ps;
@@ -30,14 +32,18 @@ public class CollectorDAOImpl implements CollectorDAO {
 		Collector c = new Collector();
 		try {
 			con = MyConnectionProvider.getCon();
-			ps = con.prepareStatement("select * from loan where cid=? and lid=?");
-			ps.setString(1, cid);
-			ps.setString(2, lid);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				c.setCid(rs.getString(1));
-				c.setLid(rs.getString(2));
-				c.setAmount(rs.getDouble(3));
+			String sqlQuery = "UPDATE loan SET amount = amount - ? WHERE cid = ? and lid = ?";
+			ps = con.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
+			ps.setDouble(1, amount);
+			ps.setString(2, cid);
+			ps.setString(3, lid);
+			int rowAffected = ps.executeUpdate();
+			System.out.println(String.format("Row affected %d", rowAffected));
+			ResultSet rs = ps.getGeneratedKeys();
+			if (rs.next()) {
+				c.setCid(rs.getString(2));
+				c.setLid(rs.getString(3));
+				c.setAmount(rs.getDouble(1));
 			}
 		} catch (Exception e) {
 			System.out.println(e);
