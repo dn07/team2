@@ -93,9 +93,7 @@ label {
 		<label for="name">Enter Customer ID:</label> <input type="text"
 			id="name" name="cid" required minlength="4" maxlength="10" size="10">
 		<label for="start">Enter Loan ID:</label> <input type="text" id="name"
-			name="lid" required minlength="3" maxlength="12" size="10"> <label
-			for="start">Enter Amount:</label> <input type="text" id="name"
-			name="amount" required minlength="2" maxlength="8" size="10"><input
+			name="lid" required minlength="3" maxlength="12" size="10"><input
 			type="submit" name="submit" value="Submit" />
 	</form>
 	<div class="footer"><%@ include file="footer.jsp"%>
