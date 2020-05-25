@@ -89,29 +89,31 @@ label {
 			<button type="button">Logout</button>
 		</span>
 	</div>
-	<form action="generateReport" method="post">
+	<form action="generateReort" method="post">
 		<div class="panel-footer">
-			<label for="start">Select date:</label> <input type="date" id="datefield"
-				name="reportDate" value="2020-05-21" min="1990-01-01" max="">
-			<button style="float: right; margin-left: 55%;" type="button" >Generate
-				Report</button>
+			<label for="start">Select date:</label> <input type="date"
+				id="datefield" name="reportDate" value="2020-05-21" min="1990-01-01"
+				max=""> <a href="exportCSV.jsp"><input
+				style="float: right; margin-left: 55%;" type="button" name="submit"
+				value="submit"></a>
 		</div>
 	</form>
 	<div class="footer"><%@ include file="footer.jsp"%>
 	</div>
 	<script>
-	var today = new Date();
-	var dd = today.getDate();
-	var mm = today.getMonth()+1; //January is 0!
-	var yyyy = today.getFullYear();
-	 if(dd<10){
-	        dd='0'+dd
-	    } 
-	    if(mm<10){
-	        mm='0'+mm
-	    } 
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth() + 1; //January is 0!
+		var yyyy = today.getFullYear();
+		if (dd < 10) {
+			dd = '0' + dd
+		}
+		if (mm < 10) {
+			mm = '0' + mm
+		}
 
-	today = yyyy+'-'+mm+'-'+dd;
-	document.getElementById("datefield").setAttribute("max", today);</script>
+		today = yyyy + '-' + mm + '-' + dd;
+		document.getElementById("datefield").setAttribute("max", today);
+	</script>
 </body>
 </html>
