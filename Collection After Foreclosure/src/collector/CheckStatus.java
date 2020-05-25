@@ -7,18 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/updateStatus")
-public class UpdateStatus extends HttpServlet {
+@WebServlet("/checkStatus")
+public class CheckStatus extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public UpdateStatus() {
+	public CheckStatus() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		CollectorDAO cs = new CollectorDAOImpl();
+		CollectorDAO cs = new StatusDAOImpl();
 		String cid = request.getParameter("cid");
 		String lid = request.getParameter("lid");
 		double amount = Double.parseDouble(request.getParameter("amount"));
@@ -27,12 +27,12 @@ public class UpdateStatus extends HttpServlet {
 		Collector c = new Collector();
 		c = cs.getCollector(cid, lid, amount);
 		if (submitType.equals("Submit")) {
-			request.setAttribute("message",
-					"Data Entry Successful! Loan amount reduced by: " + amount + " for Customer ID: " + cid);
-			request.getRequestDispatcher("updateStatus.jsp").forward(request, response);
+			request.setAttribute("message", "Fetching Details of " + c.getAmount()
+					+ " for Customer ID: " + c.getCid());
+			request.getRequestDispatcher("checkStatus.jsp").forward(request, response);
 		} else {
 			request.setAttribute("message", "Data Not Found!");
-			request.getRequestDispatcher("UpdateStatus.jsp").forward(request, response);
+			request.getRequestDispatcher("checkStatus.jsp").forward(request, response);
 		}
 	}
 

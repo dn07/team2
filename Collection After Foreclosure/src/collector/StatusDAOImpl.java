@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 import com.mysql.jdbc.Statement;
 
-public class CollectorDAOImpl implements CollectorDAO {
+public class StatusDAOImpl implements CollectorDAO {
 	static Connection con;
 	static PreparedStatement ps;
 
@@ -32,22 +32,20 @@ public class CollectorDAOImpl implements CollectorDAO {
 		Collector c = new Collector();
 		try {
 			con = MyConnectionProvider.getCon();
-			String sqlQuery = "UPDATE loan SET amount = amount - ? WHERE cid = ? and lid = ?";
+			String sqlQuery = "SELECT * from loan where cid=? and lid=?";
 			ps = con.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
-			ps.setDouble(1, amount);
-			ps.setString(2, cid);
-			ps.setString(3, lid);
-			int rowAffected = ps.executeUpdate();
-			System.out.println(String.format("Row affected %d", rowAffected));
-			ResultSet rs = ps.getGeneratedKeys();
+			ps.setString(1, cid);
+			ps.setString(2, lid);
+			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				c.setCid(rs.getString(2));
-				c.setLid(rs.getString(3));
-				c.setAmount(rs.getDouble(1));
+				c.setCid(rs.getString(1));
+				c.setLid(rs.getString(2));
+				c.setAmount(rs.getDouble(3));
 			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return c;
 	}
+
 }
