@@ -7,6 +7,7 @@
 		 - Frontend Added for
 		     - checkStatus.jsp
 			 - collection.jsp
+			 - exportCSV.jsp
 			 - footer.jsp
 			 - generateReport.jsp
 			 - header.jsp
@@ -20,5 +21,4 @@
 		 - Frontend Issues with checkStatus.jsp and updateStatus.jsp
 		 - Some segment of frontend not dynamic.
 	 - Pending Work
-		 - Manager Report
-		 - Build Login and Register Connection from other student's repository
+		 - Build Login and Register Connection from other student's repository.
