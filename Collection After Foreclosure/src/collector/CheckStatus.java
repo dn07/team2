@@ -21,14 +21,13 @@ public class CheckStatus extends HttpServlet {
 		CollectorDAO cs = new StatusDAOImpl();
 		String cid = request.getParameter("cid");
 		String lid = request.getParameter("lid");
-		double amount = Double.parseDouble(request.getParameter("amount"));
+		// double amount = Double.parseDouble(request.getParameter("amount"));
 		// System.out.println(cid + " " + lid + " " + amount);
 		String submitType = request.getParameter("submit");
 		Collector c = new Collector();
-		c = cs.getCollector(cid, lid, amount);
+		c = cs.getCollector(cid, lid);
 		if (submitType.equals("Submit")) {
-			request.setAttribute("message", "Fetching Details of " + c.getAmount()
-					+ " for Customer ID: " + c.getCid());
+			request.setAttribute("message", "Fetching Details of " + c.getAmount() + " for Customer ID: " + c.getCid());
 			request.getRequestDispatcher("checkStatus.jsp").forward(request, response);
 		} else {
 			request.setAttribute("message", "Data Not Found!");

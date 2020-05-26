@@ -91,16 +91,16 @@ label {
 	</div>
 	<form action="generateReort" method="post">
 		<div class="panel-footer">
-			<label for="start">Select date:</label> <input type="date"
+			<!-- <label for="start">Select date:</label> <input type="date"
 				id="datefield" name="reportDate" value="2020-05-21" min="1990-01-01"
-				max=""> <a href="exportCSV.jsp"><input
-				style="float: right; margin-left: 55%;" type="button" name="submit"
-				value="submit"></a>
+				max=""> -->
+			<a href="exportCSV.jsp"><button type="button">Generate
+					Report</button></a>
 		</div>
 	</form>
 	<div class="footer"><%@ include file="footer.jsp"%>
 	</div>
-	<script>
+	<!-- 	<script>
 		var today = new Date();
 		var dd = today.getDate();
 		var mm = today.getMonth() + 1; //January is 0!
@@ -114,6 +114,6 @@ label {
 
 		today = yyyy + '-' + mm + '-' + dd;
 		document.getElementById("datefield").setAttribute("max", today);
-	</script>
+	</script> -->
 </body>
 </html>

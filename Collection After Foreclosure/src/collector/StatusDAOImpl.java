@@ -28,7 +28,7 @@ public class StatusDAOImpl implements CollectorDAO {
 	}
 
 	@Override
-	public Collector getCollector(String cid, String lid, double amount) {
+	public Collector getCollector(String cid, String lid) {
 		Collector c = new Collector();
 		try {
 			con = MyConnectionProvider.getCon();
@@ -46,6 +46,12 @@ public class StatusDAOImpl implements CollectorDAO {
 			System.out.println(e);
 		}
 		return c;
+	}
+
+	@Override
+	public Collector getCollector(String cid, String lid, double amount) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

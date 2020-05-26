@@ -132,9 +132,9 @@ button {
 			</span>
 		</div>
 		<div class="button-panel">
-			<span class="button-item">
-				<button style="width: 200%;" type="button" name="checkStatus">Check
-					Status</button>
+			<span class="button-item"> <a href="checkStatus.jsp"><button
+						style="width: 200%;" type="button" name="checkStatus">Check
+						Status</button></a>
 			</span> <span class="button-item"> <a href="updateStatus.jsp"
 				target="_blank"><button style="width: 200%; margin-left: 300%;"
 						type="button" name="changeStatus" onClick="myFn()">Change

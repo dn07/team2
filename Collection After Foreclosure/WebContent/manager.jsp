@@ -80,14 +80,14 @@ button {
 	<%@ include file="header.jsp"%>
 	<div class="panel-footer">
 		<h2>Welcome Manager</h2>
-		<form action="" method="post">
-			<span style="width: 100%;" class="header-footer-item"> <a
-				href="generateReport.jsp" target="_blank"><button type="button" name="submit">Generate
-						Report</button></a>
-				<button type="button">Logout</button>
-			</span>
-		</form>
+		<span style="width: 100%;" class="header-footer-item">
+			<button type="button">Logout</button>
+		</span>
 	</div>
+	<form action="" method="post">
+		<a href="generateReport.jsp" target="_blank"><button type="button"
+				name="submit">Generate Report</button></a>
+	</form>
 	<div class="footer"><%@ include file="footer.jsp"%>
 	</div>
 </body>
