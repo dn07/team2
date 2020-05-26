@@ -50,4 +50,10 @@ public class CollectorDAOImpl implements CollectorDAO {
 		}
 		return c;
 	}
+
+	@Override
+	public Collector getCollector(String cid, String lid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
