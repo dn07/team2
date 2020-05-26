@@ -155,12 +155,14 @@ button {
 			fw.flush();
 			fw.close();
 			conn.close();
-			out.println("Successfully Created CSV file.");
+			request.setAttribute("message", "Successfully Created CSV file.");
 		} catch (Exception e) {
+			request.setAttribute("message", "Oops! Error.");
 			e.printStackTrace();
 		}
 		%>
 	</div>
+	<p style="margin-left: 10%; font-weight: bold; font-size: 1rem">${message}</p>
 	<div class="footer"><%@ include file="footer.jsp"%></div>
 </body>
 </html>

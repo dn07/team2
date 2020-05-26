@@ -18,7 +18,7 @@
 			 - checkStatus (Collector)
 			 - updateStatus (Collector)
 	 - Issues
-		 - Frontend Issues with checkStatus.jsp and updateStatus.jsp
 		 - Some segment of frontend not dynamic.
 	 - Pending Work
 		 - Build Login and Register Connection from other student's repository.
+		 - Error Handling for Invalid Entries

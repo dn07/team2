@@ -76,6 +76,12 @@ label {
 	font-size: 1.5rem;
 	margin-right: 5%;
 }
+
+table {
+	display: table;
+	width: 50%;
+	padding: 3% 10% 1.5% 10%;
+}
 </style>
 <meta charset="ISO-8859-1">
 <title>Index Page</title>
@@ -90,13 +96,31 @@ label {
 	</div>
 	<p>${message}</p>
 	<form action="updateStatus" method="post">
-		<label for="name">Enter Customer ID:</label> <input type="text"
-			id="name" name="cid" required minlength="4" maxlength="10" size="10">
-		<label for="start">Enter Loan ID:</label> <input type="text" id="name"
-			name="lid" required minlength="3" maxlength="12" size="10"> <label
-			for="start">Enter Amount:</label> <input type="text" id="name"
-			name="amount" required minlength="2" maxlength="8" size="10"><input
-			type="submit" name="submit" value="Submit" />
+		<table>
+			<tr>
+				<td><label for="name">Enter Customer ID:</label></td>
+				<td><input type="text" id="name" name="cid" required
+					minlength="4" maxlength="10" size="10"></td>
+			</tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr>
+				<td><label for="start">Enter Loan ID:</label></td>
+				<td><input type="text" id="name" name="lid" required
+					minlength="3" maxlength="12" size="10">
+			</tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+			<tr>
+				<td><label for="start">Enter Amount:</label></td>
+				<td><input type="text" id="name" name="amount" required
+					minlength="2" maxlength="8" size="10"></td>
+			</tr>
+			<tr><td></td></tr>
+			<tr><td></td></tr>
+		</table>
+		<button style="margin-left: 27.5%;" type="submit" name="submit"
+			value="Submit">Submit</button>
 	</form>
 	<div class="footer"><%@ include file="footer.jsp"%>
 	</div>
