@@ -21,6 +21,12 @@ public class Bidderapplication {
 		this.bb = bb;
 		this.pre = pre;
 	}
+	
+	public Bidderapplication(String buyer_id) {
+		super();
+		this.buyer_id = buyer_id;
+	}
+
 	public String getBuyer_id() {
 		return buyer_id;
 	}

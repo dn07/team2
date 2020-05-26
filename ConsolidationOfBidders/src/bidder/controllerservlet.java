@@ -1,7 +1,7 @@
 package bidder;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+
 
 
 
@@ -59,6 +60,8 @@ public class controllerservlet extends HttpServlet {
 				officerlogin(request,response);
 			case "VIEW BIDDERS":
 				bidderview(request,response);
+			case "DELETE":
+				bidderdelete(request,response);
 			
 			}
 					
@@ -69,6 +72,19 @@ public class controllerservlet extends HttpServlet {
 		}
 		
 	}
+
+	private void bidderdelete(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+		String buyer_id=request.getParameter("buyer id");
+		Bidderapplication theBidder=new Bidderapplication(buyer_id);
+		bidderdbutil.deleteBidder(theBidder);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/success.jsp");
+		dispatcher.forward(request, response);
+		
+		
+		
+		
+	}
+
 
 	private void bidderview(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//PrintWriter out=response.getWriter();
@@ -116,6 +132,9 @@ public class controllerservlet extends HttpServlet {
 		String pre=request.getParameter("prev");
 		Bidderapplication thebidder= new Bidderapplication(buyer_id, item, aadhar, age, address, monthly, bb, pre);
 		bidderdbutil.addapplication(thebidder);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/success.jsp");
+		dispatcher.forward(request, response);
+		
 		
 		
 	}
@@ -151,8 +170,16 @@ public class controllerservlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out=response.getWriter();
+		String to=request.getParameter("to");
+		String subject=request.getParameter("subject");
+		String message=request.getParameter("message");
+		String user=request.getParameter("user");
+		String pass=request.getParameter("pass");
+		email.send(to, subject, message, user, pass);
+		out.println("mail sent");
+		
 	}
 	private void addBidders(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String buyerID=request.getParameter("buyer id");
@@ -167,6 +194,10 @@ public class controllerservlet extends HttpServlet {
 		
 		// add the bidder to the database
 		bidderdbutil.addBidder(theBidder);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+		dispatcher.forward(request, response);
+
+		
 	
 	}
 

@@ -41,6 +41,9 @@
 				
 				
 			</table>
+			<br/>
+			<br/>
+			<a href="delete.jsp">REJECT A BIDDER APPLICATION</a>
 		
 
 </body>

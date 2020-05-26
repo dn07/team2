@@ -190,6 +190,21 @@ public  List<Bidderapplication> getBidders() throws SQLException {
 			close(myConn, myStmt, myRs);
 			return bidders;		
 		}
+public void deleteBidder(Bidderapplication theBidder) throws SQLException {
+	Connection myConn = null;
+	PreparedStatement myStmt = null;
+	ResultSet myRs = null;
+	myConn = dataSource.getConnection();
+	String id=theBidder.getBuyer_id();
+	String sql="delete from bidder_application where buyer_id="+'"'+id+'"';
+	myStmt = myConn.prepareStatement(sql);
+	myStmt.execute();
+	close(myConn, myStmt, myRs);
+	
+	
+	
+	
+}
 
 			
 	}
