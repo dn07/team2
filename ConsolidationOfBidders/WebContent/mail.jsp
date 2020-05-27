@@ -1,3 +1,4 @@
+<%@page import="bidder.BidderDetails"%> 
 <html>
 <head>
 <title>SEND MAIL</title>
@@ -5,12 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<form action="controllerservlet" method="post">
+<form action="mail" method="post">
 <table border="1">
 <tbody>
 <tr>
 <td>To</td>
-<td><input type="text" name="to"/></td>
+<%BidderDetails bd=(BidderDetails)request.getAttribute("BIDDER-MAIL");%>
+<td><input type="text" name="to" value=<%=bd.getEmail()%>/></td>
 </tr>
 <tr>
 <td>Subject</td>

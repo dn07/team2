@@ -7,6 +7,11 @@ public class BidderDetails {
 	private String phone_number;
 	private String email;
 	private String password;
+	
+	public BidderDetails(String buyerID) {
+		super();
+		this.buyerID = buyerID;
+	}
 	public BidderDetails(String buyerID, String password) {
 		super();
 		this.buyerID = buyerID;

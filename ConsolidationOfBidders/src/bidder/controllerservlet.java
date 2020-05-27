@@ -76,8 +76,11 @@ public class controllerservlet extends HttpServlet {
 	private void bidderdelete(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		String buyer_id=request.getParameter("buyer id");
 		Bidderapplication theBidder=new Bidderapplication(buyer_id);
+		BidderDetails theBidder2=new BidderDetails(buyer_id);
 		bidderdbutil.deleteBidder(theBidder);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/success.jsp");
+		BidderDetails m=bidderdbutil.getBidder(theBidder2);
+		request.setAttribute("BIDDER-MAIL", m);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/mail.jsp");
 		dispatcher.forward(request, response);
 		
 		
@@ -170,7 +173,7 @@ public class controllerservlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
+		response.setContentType("text/jsp;charset=UTF-8");
 		PrintWriter out=response.getWriter();
 		String to=request.getParameter("to");
 		String subject=request.getParameter("subject");
@@ -178,7 +181,7 @@ public class controllerservlet extends HttpServlet {
 		String user=request.getParameter("user");
 		String pass=request.getParameter("pass");
 		email.send(to, subject, message, user, pass);
-		out.println("mail sent");
+		out.println("<h1>mail sent successfully</h1>");
 		
 	}
 	private void addBidders(HttpServletRequest request, HttpServletResponse response) throws Exception {

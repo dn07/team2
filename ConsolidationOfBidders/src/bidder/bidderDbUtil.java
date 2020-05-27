@@ -205,6 +205,30 @@ public void deleteBidder(Bidderapplication theBidder) throws SQLException {
 	
 	
 }
+public BidderDetails getBidder(BidderDetails theBidder) throws SQLException {
+	String id=theBidder.getBuyerID();
+	BidderDetails temp = null;
+	Connection myConn = null;
+	Statement myStmt = null;
+	ResultSet myRs = null;
+	myConn = dataSource.getConnection();
+	String sql = "select * from bidder_info where buyer_id="+'"'+id+'"';
+	myStmt = myConn.createStatement();
+	myRs = myStmt.executeQuery(sql);
+	while (myRs.next()) {
+		String buyer_id=myRs.getString("buyer_id");
+		String fname=myRs.getString("f_name");
+		String lname=myRs.getString("l_name");
+		String phone_number=myRs.getString("phone_number");
+		String email=myRs.getString("email");
+		String password=myRs.getString("password");
+	    temp=new BidderDetails(buyer_id, fname, lname, phone_number, email, password);
+	}
+	close(myConn, myStmt, myRs);
+	return temp;
+			
+	}
+
 
 			
 	}
