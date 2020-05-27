@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<form action="mail" method="post">
+<form action="controllerservlet" method="post">
 <table border="1">
 <tbody>
 <tr>
