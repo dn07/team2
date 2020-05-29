@@ -1,6 +1,7 @@
 package bidder;
 
 public class BidderDetails {
+	/*This class contains details entered by bidder while registering into the website*/
 	private String buyerID;
 	private String fname;
 	private String lname;

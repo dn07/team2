@@ -1,3 +1,4 @@
+<!-- This page takes details for the application form so that the bidder can be checked by the loan officer before being approved to take part in the auction -->
 <html>
 <head>
 <title>APPLICATION FORM</title>

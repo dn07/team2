@@ -1,6 +1,7 @@
 package bidder;
 
 public class Bidderapplication {
+	/*This is the class which contains the fields entered by the registered user in the bidder application form along with the getters and setters*/
 	String buyer_id;
 	String item;
 	String aadhar;
