@@ -12,13 +12,13 @@ body {
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-a {
-	font-family: "Roboto";
-	font-size: 14px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 20px;
+
+
+.logout{
+	display: flex;
+	align-item: centre;
+	justify-content: centre;
+	text-anchor: start;
 }
 
 .panel-footer {
@@ -73,12 +73,18 @@ button {
 }
 
 .WelcomeMes {
-	
+	padding: 1% 1%;
 	display: flex;
 	color: #fff;
 	align-items: center;
     justify-content: center;
     text-anchor: start;
+    font-size: 45px;
+    font-style: bold;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 20px;
+    
 }
 
 .Options {
@@ -86,7 +92,21 @@ button {
   	border-collapse: collapse;
   	width: 150px;
   	padding: 5px 10px;
+  	font-size: 45px;
+    font-style: bold;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 20px;
   	
+}
+
+table a{
+	padding: 10%,
+	font-size: 45px;
+    font-style: bold;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 20px;
 }
 .Options a {
 	float: right;
@@ -122,12 +142,12 @@ button {
 	<%@ include file="header.jsp"%>
 	<main>
 		<section class="WelcomeMes">
-			<h1>Welcome Bank Manager</h1>
+			Welcome Bank Manager
 		</section>
 		<section class="Options">
 			<table>
   				<tr>
-    				<th><a href="#Collector Info">Collector Info</a> </th>
+    				<th><a href="CollectorInfo.jsp">Collector Info</a> </th>
     
 			    </tr>
 				<tr>
@@ -135,16 +155,18 @@ button {
     
 				</tr>
 				<tr>
-    				<th><a href="#Report">Report</a> </th>
+    				<th><a href="#Report">Generate Report</a> </th>
     
 				</tr>
 				<tr>
-    				<th><a href="#Report">Report</a></th>
+    				<th><a href="#Report">Generate Report</a></th>
     
 				</tr>
 			</table>
 		</section>
 	</main>
+	
+	
 	<div class="footer"><%@ include file="footer.jsp"%>
 	</div>
 </body>
