@@ -62,6 +62,8 @@ public class controllerservlet extends HttpServlet {
 				bidderview(request,response);
 			case "DELETE":
 				bidderdelete(request,response);
+			case "APPROVAL":
+				bidderfinallist(request,response);
 			
 			}
 					
@@ -72,6 +74,15 @@ public class controllerservlet extends HttpServlet {
 		}
 		
 	}
+
+	private void bidderfinallist(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+		List<Bidderapplication> bidders=bidderdbutil.getBidders();
+		request.setAttribute("BIDDER-LIST", bidders);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/bidder-listfinal.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+
 
 	private void bidderdelete(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		String buyer_id=request.getParameter("buyer id");
