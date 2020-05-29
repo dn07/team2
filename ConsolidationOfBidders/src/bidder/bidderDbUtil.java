@@ -13,10 +13,12 @@ import javax.sql.DataSource;
 
 public class bidderDbUtil {
 	int t=10;
-	private  DataSource dataSource;
+	private  DataSource dataSource;//for connection to database
 	public bidderDbUtil(DataSource theDataSource) {
 		dataSource = theDataSource;
 	}
+	
+	
 	public void addBidder(BidderDetails theBidder) throws Exception {
 
 		Connection myConn = null;
@@ -34,7 +36,7 @@ public class bidderDbUtil {
 			
 			myStmt = myConn.prepareStatement(sql);
 			
-			// set the param values for the student
+			// set the param values for the bidder
 			myStmt.setString(1, theBidder.getBuyerID());
 			myStmt.setString(2, theBidder.getFname());
 			myStmt.setString(3, theBidder.getLname());
@@ -51,6 +53,8 @@ public class bidderDbUtil {
 		}
 	}
 
+	
+	
 	private void close(Connection myConn, Statement myStmt, ResultSet myRs) {
 
 		try {
@@ -70,21 +74,23 @@ public class bidderDbUtil {
 			exc.printStackTrace();
 		}
 	}
+	
+	
 	public int checkbidder(BidderDetails theBidder) throws SQLException  {
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
 
-	
+	        //getting connection to database
 			myConn = dataSource.getConnection();
 			String id=theBidder.getBuyerID();
-			String sql="select * from bidder_info where buyer_id="+'"'+id+'"';
+			String sql="select * from bidder_info where buyer_id="+'"'+id+'"';//sql query to retrieve bidder
 			myStmt = myConn.prepareStatement(sql);
-			myRs = myStmt.executeQuery(sql);
+			myRs = myStmt.executeQuery(sql);//the myRs variable stores rows returned after the query execution
 			while(myRs.next())
 			{
 			String pass=myRs.getString("password");
-			if(pass.equals(theBidder.getPassword()))
+			if(pass.equals(theBidder.getPassword()))//check if password entered matches the one in database
 			{
 			   t=1;  
 			}
@@ -98,6 +104,9 @@ public class bidderDbUtil {
 			return t;
 				
 }
+	
+	
+	
 	public void addapplication(Bidderapplication thebidder) throws Exception{
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -114,7 +123,7 @@ public class bidderDbUtil {
 			
 			myStmt = myConn.prepareStatement(sql);
 			
-			// set the param values for the student
+			// set the param values for the bidder application
 			myStmt.setString(1, thebidder.getItem());
 			myStmt.setString(2, thebidder.getAadhar());
 			myStmt.setString(3, thebidder.getAge());
@@ -134,6 +143,10 @@ public class bidderDbUtil {
 		
 		
 	}
+	
+	
+	
+	
 	public int loginloanofficer(loanofficer theOfficer) throws SQLException {
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -158,7 +171,10 @@ public class bidderDbUtil {
 		
 		return t;
 	}
-public  List<Bidderapplication> getBidders() throws SQLException {
+
+	
+	
+	public  List<Bidderapplication> getBidders() throws SQLException {
 		
 		List<Bidderapplication> bidders = new ArrayList<>();
 		
@@ -185,27 +201,28 @@ public  List<Bidderapplication> getBidders() throws SQLException {
 				Bidderapplication temp=new Bidderapplication(buyer_id, item, aadhar, age, address, monthly, bb, pre);
 				
 			
-				bidders.add(temp);				
+				bidders.add(temp);//adding returned bidder application details to the list to display 				
 			}
 			close(myConn, myStmt, myRs);
 			return bidders;		
 		}
-public void deleteBidder(Bidderapplication theBidder) throws SQLException {
+
+	
+	
+	public void deleteBidder(Bidderapplication theBidder) throws SQLException {
 	Connection myConn = null;
 	PreparedStatement myStmt = null;
 	ResultSet myRs = null;
 	myConn = dataSource.getConnection();
 	String id=theBidder.getBuyer_id();
-	String sql="delete from bidder_application where buyer_id="+'"'+id+'"';
+	String sql="delete from bidder_application where buyer_id="+'"'+id+'"';//sql query to delete bidder
 	myStmt = myConn.prepareStatement(sql);
 	myStmt.execute();
 	close(myConn, myStmt, myRs);
-	
-	
-	
-	
 }
-public BidderDetails getBidder(BidderDetails theBidder) throws SQLException {
+
+	
+ public BidderDetails getBidder(BidderDetails theBidder) throws SQLException {
 	String id=theBidder.getBuyerID();
 	BidderDetails temp = null;
 	Connection myConn = null;
@@ -225,7 +242,7 @@ public BidderDetails getBidder(BidderDetails theBidder) throws SQLException {
 	    temp=new BidderDetails(buyer_id, fname, lname, phone_number, email, password);
 	}
 	close(myConn, myStmt, myRs);
-	return temp;
+	return temp;//returning bidder object to retrieve email address to send email
 			
 	}
 

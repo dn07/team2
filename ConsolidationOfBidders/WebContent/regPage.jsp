@@ -1,3 +1,4 @@
+<!-- This is the front end page which contains the form to enter details such as name,email etc to register as a bidder so that they can apply for the bidder application  -->
 <html>
 <head><title>BIDDER REGISTRATION FORM</title>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>

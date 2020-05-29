@@ -4,6 +4,7 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class email {
+	/*this is the standard class used to send email to the rejected bidder*/
 	public static void send(String to,String sub,String msg,final String user,final String pass)
 	{
 	  Properties props=new Properties();

@@ -1,3 +1,4 @@
+<!-- Registered bidders will login via this page to access the application form for the auction -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
