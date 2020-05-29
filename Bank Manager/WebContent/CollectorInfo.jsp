@@ -169,11 +169,11 @@ table {
     <tbody>
       <tr>
         <th>ID</td>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-        <th>PAN</th>
+        <th>Collector Name</th>
+        <th>Defaulter ID</th>
+        <th>Collateral ID</th>
+        <th>Loan ID</th>
+        <th>Status</th>
       </tr>
        	<%
 						try{ 
@@ -217,7 +217,7 @@ table {
     </tbody>
   </table>
   
-	<a href="Home_Page.jsp" target="_blank"><button type="button">Home Page</button></a>
+	<a href="Home_Page.jsp" ><button type="button">Home Page</button></a>
   	<%@ include file="footer.jsp"%>
 </body>
 </html>
