@@ -102,7 +102,7 @@ table, th {
 table, td{
 	border: 2px solid black;
   text-align: left;
-  font-size: 15px;
+  font-size: 25px;
   font-style: bold;
 	font-variant: normal;
 	font-weight: 400;
@@ -152,36 +152,39 @@ table {
     		<!-- Table Header Declaration -->
       		<tr>
         		<th>ID</th>
-        		<th>First Name</th>
-        		<th>Last Name</th>
-        		<th>Email</th>
-        		<th>Mobile</th>
-        		<th>PAN</th>
-        		<th>Adhar</th>
-        		<th>Address</th>
+        		<th>Collector Name</th>
+        		<th>Defaulter ID</th>
+        		<th>Collateral ID</th>
+        		<th>Loan ID</th>
+        		<th>Status</th>
       		</tr>
       			<!-- Extract required fields from SQL Database -->
 	       	<%
 				try{ 
 					connection = DriverManager.getConnection(connectionUrl, userId, password);
 					statement=connection.createStatement();
-					String sql ="SELECT * FROM SSD.collector;";
+					String sql ="SELECT * FROM SSD.collector2;";
 					String st,cl = "red";
 					resultSet = statement.executeQuery(sql);
+					
 					while(resultSet.next()){
+						st = resultSet.getString("Status");
+						if(st.equals("Pending")){
+							cl = "red";
+						}						
+						else if(st.equals("Done")){
+							 cl = "green";					
+						}
 			%>
 			<!-- ----------------------------------------- -->		
 			<tr>						
 				<!-- Displaying Values acquired from SQL -->
 				<td><%=resultSet.getInt("idCollector")%></td>
 				<td><%=resultSet.getString("FName")%></td>	
-				<td><%=resultSet.getString("LName")%></td>	
-				<td><%=resultSet.getString("Email")%></td>	
-				<td><%=resultSet.getString("Mobile")%></td>
-				<td><%=resultSet.getString("PAN")%></td>
-				<td><%=resultSet.getString("Adhar")%></td>
-				<td><%=resultSet.getString("Address")%></td>	
-				
+				<td><%=resultSet.getInt("DefaulterID")%></td>	
+				<td><%=resultSet.getInt("CollateralInfo")%></td>	
+				<td><%=resultSet.getInt("LoanID")%></td>	
+				<td style="color:<%=cl%>;"><%=st%></td>	
 				<!-- ---------------------------------- -->		
 			</tr>
 						
@@ -190,7 +193,6 @@ table {
 	       		catch (Exception e) {
 					e.printStackTrace();
 				}
-	       		
 			%>
 		</tbody>
 	</table>

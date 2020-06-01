@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Adding css components -->
 <style>
 h1 {
 	font-family: "Roboto";
@@ -81,15 +82,14 @@ body {
 	background-color: #4CAF50;
 	color: white;
 }
-
-
-
 </style>
-<!-- <link href="../css/header.css" rel="stylesheet" type="text/css"> -->
+<!-- --------------------- -->
+
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- Navigation Bar and Footer -->
 	<main class="footer">
 	<div class="topnav">
 		<a href="#contact">Contact</a> <a href="#tnc">Terms and Conditions</a>
@@ -99,5 +99,7 @@ body {
 			style="font-weight: bold; font-size: 18px; float: left">VIT BANK</a>
 	</div>
 	</main>
+	<!-- ------------------------- -->
+	
 </body>
 </html>

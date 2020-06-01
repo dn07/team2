@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
+<!-- Adding css components -->
+<style> 
 body {
 	background: #4CA1AF; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);
@@ -11,8 +12,6 @@ body {
 	background: linear-gradient(to down, #C4E0E5, #4CA1AF);
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
-
 
 .logout{
 	display: flex;
@@ -90,7 +89,7 @@ button {
 .Options {
 	border: 1px solid black;
   	border-collapse: collapse;
-  	width: 150px;
+  	width: 200px;
   	padding: 5px 10px;
   	font-size: 45px;
     font-style: bold;
@@ -135,19 +134,28 @@ table a{
 }
 
 </style>
+<!-- --------------------- -->
+
 <meta charset="ISO-8859-1">
 <title>Bank</title>
 </head>
 <body>
+	<!-- Adding Header -->
 	<%@ include file="header.jsp"%>
+	<!-- ------------- -->
+
 	<main>
+		<!-- Welcome Message -->
 		<section class="WelcomeMes">
 			Welcome Bank Manager
 		</section>
+		<!-- --------------- -->
+		
+		<!-- Menu Bar for Navigation -->
 		<section class="Options">
 			<table>
   				<tr>
-    				<th><a href="CollectorInfo.jsp">Collector Info</a> </th>
+    				<th><a href="LoanInfo.jsp">Collector Loan Info</a> </th>
     
 			    </tr>
 				<tr>
@@ -155,7 +163,7 @@ table a{
     
 				</tr>
 				<tr>
-    				<th><a href="#Report">Generate Report</a> </th>
+    				<th><a href="CollectorInfo.jsp">Registered Collectors</a> </th>
     
 				</tr>
 				<tr>
@@ -164,10 +172,12 @@ table a{
 				</tr>
 			</table>
 		</section>
+		<!-- ----------------------- -->
+		
 	</main>
 	
-	
-	<div class="footer"><%@ include file="footer.jsp"%>
-	</div>
+	<!-- Adding Footer -->
+	<div class="footer"><%@ include file="footer.jsp"%></div>
+	<!-- ------------- -->
 </body>
 </html>
