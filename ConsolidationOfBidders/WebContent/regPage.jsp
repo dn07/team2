@@ -1,3 +1,4 @@
+<!-- This is the front end page which contains the form to enter details such as name,email etc to register as a bidder so that they can apply for the bidder application  -->
 <html>
 <head><title>BIDDER REGISTRATION FORM</title>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -8,19 +9,19 @@
 <div>
 <form action="controllerservlet" method="GET">
 <input type="hidden" name="command" value="REG" />
+BUYER ID:<br/><input type="text" name="buyer id"/>
+<br/>
+<br/>
 FIRST NAME:<br/><input type="text" name="fname"/>
 <br/>
 <br/>
 LAST NAME:<br/><input type="text" name="lname"/>
 <br/>
 <br/>
-EMAIL:<br/><input type="email" name="email"/>
-<br/>
-<br/>
 PHONE NUMBER:<br/><input type="number" name="phone number"/>
 <br/>
 <br/>
-BUYER ID:<br/><input type="text" name="buyer id"/>
+EMAIL:<br/><input type="email" name="email"/>
 <br/>
 <br/>
 PASSWORD:<br/><input type="password" name="pwd"/>

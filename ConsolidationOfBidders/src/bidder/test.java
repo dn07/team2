@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 @WebServlet("/test")
 public class test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	@Resource(name="jdbc/bidder")
+	@Resource(name="jdbc/web_student_tracker")
 	private DataSource dataSource;
 	
 
@@ -28,7 +28,6 @@ public class test extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		PrintWriter out=response.getWriter();
 		response.setContentType("text/plain");
 		Connection myConn=null;
@@ -36,7 +35,7 @@ public class test extends HttpServlet {
 		ResultSet myrs=null;
 		try {
 			myConn=dataSource.getConnection();
-			String sql="select * from bidderinfo";
+			String sql="select * from bidder_info";
 			mysmt=myConn.createStatement();
 			myrs=mysmt.executeQuery(sql);
 			while(myrs.next())
