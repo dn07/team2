@@ -1,9 +1,17 @@
 package collector_bankmanager;
 
-import java.sql.Date;
+/*
+ * Author:				Himanshu Savargaonkar
+ * Reg. No.:			18BEC0735
+ * Name:				Collector.java
+ * Purpose:				Class to store all the details of a collector. Used while adding a new collector
+ * Class Used by:		ServletCollector.java; SQLCollector.java;
+ * Classes Used:		-
+ */
 
 public class Collector {
 
+	// Declaration of variables to be stored for each collector
 	private String fname;
 	private String lname;
 	private String email;
@@ -13,6 +21,8 @@ public class Collector {
 	private String address;
 	private String DOB;
 	
+	
+	//Constructor
 	Collector(String fname, String lname, String email, String mobile, String PAN, String adhar, String address, String DOB){
 		this.fname = fname;
 		this.lname = lname;
@@ -24,6 +34,8 @@ public class Collector {
 		this.DOB = DOB;
 	}
 	
+	
+	//SET and GET functions for all the variables
 	public String getFname() {
 		return fname;
 	}
@@ -72,6 +84,7 @@ public class Collector {
 	public void setDOB(String dOB) {
 		DOB = dOB;
 	}
+	
 	
 	
 }

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+	<!-- Links for adding Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -13,6 +14,7 @@
 		$("#Modal").modal('show');
 	});
 </script>
+<!-- Adding css components -->
 <style>
 body {
 	background: #4CA1AF; /* fallback for old browsers */
@@ -29,13 +31,6 @@ a {
 	font-variant: normal;
 	font-weight: 400;
 	line-height: 20px;
-}
-
-.logout{
-	display: flex;
-	align-item: centre;
-	justify-content: centre;
-	text-anchor: start;
 }
 
 .panel-footer {
@@ -71,59 +66,6 @@ button {
 	width: 10em;
 }
 
-.toast-message {
-	text-align: center;
-	font-size: 16px;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	margin-right: 10%;
-	margin-bottom: 6%;
-}
-
-.submit-button {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	margin-right: 10%;
-	margin-bottom: 10%;
-}
-
-.WelcomeMes {
-	
-	display: flex;
-	color: #fff;
-	align-items: center;
-    justify-content: center;
-    text-anchor: start;
-}
-
-.Options {
-	border: 1px solid black;
-  	border-collapse: collapse;
-  	width: 150px;
-  	padding: 5px 10px;
-  	
-}
-.Options a {
-	float: right;
-	color: #000000;
-	text-align: center;
-	padding: 5px 16px;
-	text-decoration: none;
-	font-size: 14px;
-	opacity: 1;
-}
-.Options a:hover {
-	background-color: #ddd;
-	color: black;
-}
-
-.Options a.active {
-	background-color: #4CAF50;
-	color: white;
-}
-
 .footer {
 	position: fixed;
 	left: 0;
@@ -131,47 +73,76 @@ button {
 	width: 100%;
 }
 
+.container-fluid {
+	background-color:-webkit-linear-gradient(to right, #C4E0E5, #4CA1AF); 
+	max-width:900px; 
+	padding-top:150px;
+}
+
+.modal-content {
+	border: green 3px solid;
+}
+
+.modal-title {
+	color: green;
+}
+
 </style>
+<!-- --------------------- -->
+
 <title>Bank</title>
 </head>
 <body>
+	<!-- Adding Header -->
 	<%@ include file="header.jsp"%>
-	<div class="container-fluid" style="background-color:-webkit-linear-gradient(to right, #C4E0E5, #4CA1AF); max-width:900px; padding-top:150px">
+	<!-- ------------- -->
+	
+	<div class="container-fluid">
 		<div class="modal modal fade" id="Modal">
 	    	<div class="modal-dialog modal-lg modal-dialog-centered">
-    	  		<div class="modal-content" style="border:green 3px solid;">
-      
+    	  		<div class="modal-content">
         			<!-- Modal Header -->
         			<div class="modal-header">
-          			<h4 class="modal-title" style="color:green">Success</h4>
+          			<h4 class="modal-title">Success</h4>
           			<button type="button" class="close" data-dismiss="modal">&times;</button>
         			</div>
-        
+    				<!-- --------------- -->
+    				    
         			<!-- Modal body -->
         			<div class="modal-body">
           			You have been <b>registered!</b>
         			</div>
-        
+        			<!-- ---------- -->
+        			
 			        <!-- Modal footer -->
         			<div class="modal-footer">
           			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         			</div>
-        
+        			<!-- ------------ -->
+        			
 		      </div>
     		</div>
   		</div>
+  		<!-- Success Message -->
 		<div class="alert alert-success" role="alert">
-  		<h1 class="alert-heading">Success!</h1>
-  		<p>Congratulations you have been registered as a bidder!<br>Now you can access any auction that is open.</p>
-  		<hr>
-  		<p class="mb-0"><b>Warning!</b><br> If you forget your password or any details have to be updated please approach the nearest bank.</p>
+  			<h1 class="alert-heading">Success!</h1>
+  			<p>Congratulations you have been registered as a bidder!<br>Now you can access any auction that is open.</p>
+  			<hr>
+  			<p class="mb-0"><b>Warning!</b><br> If you forget your password or any details have to be updated please approach the nearest bank.</p>
 		</div>
+		<!-- --------------- -->
+		
 	</div>
+	<!-- Return to Home Page button -->
 	<div class="form-group">
 	    <div class="offset-sm-5">
     	  <a href="Home_Page.jsp" type="button" class="btn btn-primary btn-lg">Home Page</a>
     	</div>
   	</div>
+  	<!-- ------------------------- -->
+  	
+  	<!-- Adding Footer -->
   	<%@ include file="footer.jsp"%>
+  	<!-- ------------- -->
 </body>
 </html>

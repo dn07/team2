@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
+<!-- Adding css components -->
+<style> 
 h1 {
 	font-family: "Roboto";
 	font-size: 24px;
@@ -82,16 +83,19 @@ body {
 	color: white;
 }
 </style>
-<!-- <link href="../css/header.css" rel="stylesheet" type="text/css"> --> 
+<!-- --------------------- -->
+ 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- Navigation Bar -->
 	<div class="topnav">
 		<a href="#contact">Contact</a> <a href="#tnc">Terms and Conditions</a>
 		<a href="#loans">Loans</a> <a href="#collector">Collector</a> 
 		<a href="#personal">Personal</a>
 		<a href="Home_Page.jsp"style="font-weight: bold; font-size: 18px; float: left">VIT BANK</a>
 	</div>
+	<!-- -------------- -->
 </body>
 </html>
