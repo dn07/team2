@@ -23,16 +23,16 @@ public class SQLCollector{
    /*
 	 * Author:				Himanshu Savargaonkar
 	 * Reg. No:				18BEC0735
-	 * Function Name:		SendData()
+	 * Function Name:		AddColl()
 	 * Purpose:				Store data from Collector Obj to SQL Database
 	 * Arguments:			Collector;
 	 * Return:				Int(Status of database);
 	 */
-   public static int SendData(Collector col) {
+   public static int AddColl(Collector col) {
 	   Connection conn = null;
 	   Statement stmt = null;
 	   ResultSet rs = null;
-	   int tmp = 0, id = 1;
+	   int status = 1, id = 1;
 	   String sql;
    
 	   try{
@@ -62,7 +62,7 @@ public class SQLCollector{
       //Handle errors for JDBC
 		   se.printStackTrace();
 		   //Set Status to Failed
-		   tmp = 1;
+		   status = 0;
 	   }catch(Exception e){
       //Handle errors for Class.forName
 		   e.printStackTrace();
@@ -80,6 +80,59 @@ public class SQLCollector{
 			   se.printStackTrace();
 		   }
 	   }
-	   return tmp;
+	   return status;
+   }
+   
+   /*
+	 * Author:				Himanshu Savargaonkar
+	 * Reg. No:				18BEC0735
+	 * Function Name:		AddColl()
+	 * Purpose:				Delete row from SQL database based on the input from the Collector Object
+	 * Arguments:			Collector;
+	 * Return:				Int(Status of database);
+	 */
+   public static int RemColl(Collector col) {
+	   Connection conn = null;
+	   Statement stmt = null;
+	   ResultSet rs = null;
+	   int status = 1;
+	   String sql;
+   
+	   try{
+		   //Register JDBC driver
+		   Class.forName("com.mysql.jdbc.Driver");
+
+		   //Open a connection
+		   conn = DriverManager.getConnection(DB_URL, USER, PASS);		   
+		   
+		   //Execute the query
+		   stmt = conn.createStatement();
+		
+		   sql = "DELETE FROM ssd.collector WHERE idCollector=" + col.getId() + ";";		 
+			   stmt.execute(sql);		   
+		   
+	   }catch(SQLException se){
+      //Handle errors for JDBC
+		   se.printStackTrace();
+		   //Set Status to Failed
+		   status = 0;
+	   }catch(Exception e){
+      //Handle errors for Class.forName
+		   e.printStackTrace();
+	   }finally{
+      //finally block used to close resources
+		   try{
+			   if(stmt!=null)
+				   conn.close();
+		   }catch(SQLException se){
+		   }
+		   try{
+			   if(conn!=null)
+				   conn.close();
+		   }catch(SQLException se){
+			   se.printStackTrace();
+		   }
+	   }
+	   return status;
    }
 }				

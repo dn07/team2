@@ -167,7 +167,7 @@ table a{
     
 				</tr>
 				<tr>
-    				<th><a href="#Report">Generate Report</a></th>
+    				<th><a href="RemCollector.jsp">Remove Collector</a></th>
     
 				</tr>
 			</table>

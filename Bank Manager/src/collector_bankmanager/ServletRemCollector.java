@@ -5,14 +5,14 @@ import javax.servlet.http.*;
 /*
  * Author:				Himanshu Savargaonkar
  * Reg. No.:			18BEC0735
- * Name:				ServletCollector.java
- * Purpose:				Accept data from jsp form and store it in the collector object. Call SQL function 
- * 						and add the collector object to the SQL Database.
- * Class Used by:		AddCollector.jsp; Servlet:AddColl;
+ * Name:				ServletRemCollector.java
+ * Purpose:				Accept data from jsp form and delete collector from database. Call SQL function 
+ * 						and delete the collector object from the SQL Database.
+ * Class Used by:		RemCollector.jsp; Servlet:RemColl;
  * Classes Used:		Collector; SQLCollector;
  */
 
-public class ServletCollector extends HttpServlet
+public class ServletRemCollector extends HttpServlet
 {
 	// Declaring SQLCollector Obj
 	SQLCollector sqlc = new SQLCollector();
@@ -21,8 +21,8 @@ public class ServletCollector extends HttpServlet
 	 * Author:				Himanshu Savargaonkar
 	 * Reg. No:				18BEC0735
 	 * Function Name:		service()
-	 * Purpose:				Standard servlet function. Accept data from AddCollector.jsp and store the same in 
-	 * 						Collector object. Call SQL function to store collector object in database. Redirect based on 
+	 * Purpose:				Standard servlet function. Accept data from RemCollector.jsp and store the same in 
+	 * 						Collector object. Call SQL function to delete collector object from database. Redirect based on 
 	 * 						database status. 
 	 * Arguments:			HttpServletRequest; HttpServletResponse;
 	 * Return:				-
@@ -30,18 +30,11 @@ public class ServletCollector extends HttpServlet
 	public void service(HttpServletRequest req, HttpServletResponse res)
 	{
 		//Declare Collector Object and initialize using constructor
-		Collector ncol = new Collector(
-								req.getParameter("first name"),
-								req.getParameter("last name"),
-								req.getParameter("email"),
-								req.getParameter("phone"),
-								req.getParameter("pan"),
-								req.getParameter("aadhar"),
-								req.getParameter("address"),
-								req.getParameter("dob")
-						);	
+		Collector ncol = new Collector();
+		ncol.setFname(req.getParameter("first name"));
+		ncol.setId(req.getParameter("id"));
 		//Send Collector Obj to SQL Database 
-		int check = sqlc.AddColl(ncol);
+		int check = sqlc.RemColl(ncol);
 		
 		//Check Database Status and Redirect accordingly
 		if (check == 1){
