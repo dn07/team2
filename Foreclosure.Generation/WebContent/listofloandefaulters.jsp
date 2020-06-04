@@ -50,6 +50,7 @@
    
     %>
     <a href=  "add_defaulter.jsp"><button type="button" style="background-color: mintcream; border-radius: 10px;width: 100px;height:30px;">REGISTER</button></a>
+      <a href=  "collector.jsp"><button type="button" style="background-color: mintcream; border-radius: 10px;width: 100px;height:30px;">BACK</button></a>
     </div>
     </center>
 </body>
