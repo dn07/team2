@@ -12,6 +12,7 @@ package collector_bankmanager;
 public class Collector {
 
 	// Declaration of variables to be stored for each collector
+	private String id;
 	private String fname;
 	private String lname;
 	private String email;
@@ -23,6 +24,11 @@ public class Collector {
 	
 	
 	//Constructor
+	Collector()
+	{
+		super();
+	}
+	
 	Collector(String fname, String lname, String email, String mobile, String PAN, String adhar, String address, String DOB){
 		this.fname = fname;
 		this.lname = lname;
@@ -36,6 +42,12 @@ public class Collector {
 	
 	
 	//SET and GET functions for all the variables
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getFname() {
 		return fname;
 	}

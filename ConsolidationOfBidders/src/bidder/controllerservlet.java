@@ -59,7 +59,7 @@ public class controllerservlet extends HttpServlet {
 			case "LOAN OFFICER":
 				officerlogin(request,response);
 			case "VIEW BIDDERS":
-				bidderview(request,response);//function which displays list of bidder applications
+				bidderview(request,response);//function which displays list of bidder applications to be inspected by loan officer
 			case "DELETE":
 				bidderdelete(request,response);//function to delete a bidder application by the loan officer
 			case "APPROVAL":

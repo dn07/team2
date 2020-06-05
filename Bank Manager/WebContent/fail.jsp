@@ -113,7 +113,7 @@ button {
     				    
 			        <!-- Modal body -->
         			<div class="modal-body">
-          				You have <b>failed</b> to register!
+          				You have <b>failed</b> to alter the database!
         			</div>
         			<!-- ---------- -->
         			
@@ -139,7 +139,7 @@ button {
 	<div class="form-group">
 	    <div class="offset-sm-5">
       		<a href="Home_Page.jsp" type="button" class="btn btn-primary btn-lg">Home Page</a>
-      		<a href="AddCollector.jsp" type="button" class="btn btn-primary btn-lg">Re-register</a>
+      		
     	</div>
   	</div>
   	<!-- ---------------------------------- -->

@@ -27,10 +27,10 @@ public class User_Bean {
 		this.LoanId = LoanId;
 	}
 	public String getBankruptyId() {
-		return BankruptyId;
+		return BankruptcyId;
 	}
-	public void setDefaulterId(String BankruptyId) {
-		this.BankruptyId = BankruptyId;
+	public void setDefaulterId(String BankruptcyId) {
+		this.BankruptcyId = BankruptcyId;
 	}
 	public String getPhone() {
 		return Phone;

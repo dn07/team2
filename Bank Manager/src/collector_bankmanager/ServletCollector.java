@@ -41,10 +41,10 @@ public class ServletCollector extends HttpServlet
 								req.getParameter("dob")
 						);	
 		//Send Collector Obj to SQL Database 
-		int check = sqlc.SendData(ncol);
+		int check = sqlc.AddColl(ncol);
 		
 		//Check Database Status and Redirect accordingly
-		if (check == 0){
+		if (check == 1){
 			res.setContentType("text/html");
 			String site = new String("success.jsp");
 				      res.setStatus(res.SC_MOVED_TEMPORARILY);

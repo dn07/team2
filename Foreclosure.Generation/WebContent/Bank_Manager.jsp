@@ -50,6 +50,7 @@
    
     %>
     <a href=  "Success.jsp"><button type="button" style="background-color: mintcream; border-radius: 10px;width: 100px;height:30px;">APPROVE</button></a>
+    <a href=  "collector.jsp"><button type="button" style="background-color: mintcream; border-radius: 10px;width: 100px;height:30px;">BACK</button></a>
     </div>
     </center>
 </body>

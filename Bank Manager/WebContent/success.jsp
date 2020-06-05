@@ -110,7 +110,7 @@ button {
     				    
         			<!-- Modal body -->
         			<div class="modal-body">
-          			You have been <b>registered!</b>
+          			Changes have been made to the <b>Collector Database!</b>
         			</div>
         			<!-- ---------- -->
         			

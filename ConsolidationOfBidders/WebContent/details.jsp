@@ -11,7 +11,7 @@
 <div>
 <form action="controllerservlet" method="GET">
 <input type="hidden" name="command" value="CONFIRM" />
-PLEASE ENTER YOUR REGISTERED BUYER ID:<br/><input type="text" name="buyer id"/>
+PLEASE ENTER YOUR REGISTERED BUYER ID:<br/><input type="text" name="buyer id" required />
 <br/>
 <br/>
 TYPE OF ITEM:<br/>
@@ -20,22 +20,22 @@ TYPE OF ITEM:<br/>
 <input type="radio" name="rf" value="jewellery">JEWELS
 <br/>
 <br/>
-AADHAR NUMBER:<br/><input type="text" name="aadhar"/>
+AADHAR NUMBER:<br/><input type="text" name="aadhar" required/>
 <br/>
 <br/>
-AGE:<br/><input type="text" name="age"/>
+AGE:<br/><input type="text" name="age" required/>
 <br/>
 <br/>
-ADDRESS:<br/><input type="text" name="address"/>
+ADDRESS:<br/><input type="text" name="address" required/>
 <br/>
 <br/>
-MONTHLY SALARY:<br/><input type="number" name="salary"/>
+MONTHLY SALARY:<br/><input type="number" name="salary" required/>
 <br/>
 <br/>
-BANK BALANCE:<br/><input type="number" name="bank balance"/>
+BANK BALANCE:<br/><input type="number" name="bank balance" required/>
 <br/>
 <br/>
-PREVIOUS EXPERIENCE (YES/NO):<br/><input type="text" name="prev"/>
+PREVIOUS EXPERIENCE (YES/NO):<br/><input type="text" name="prev" required/>
 <br/>
 <br/>
 <input type="submit" value="submit"/>

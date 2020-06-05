@@ -102,7 +102,7 @@ table, th {
 table, td{
 	border: 2px solid black;
   text-align: left;
-  font-size: 25px;
+  font-size: 15px;
   font-style: bold;
 	font-variant: normal;
 	font-weight: 400;
@@ -115,6 +115,8 @@ table {
     margin-left:15%; 
     margin-right:15%;
 }
+
+
 
 .center {
   margin: auto;
