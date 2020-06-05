@@ -15,10 +15,10 @@
 <div>
 <form action="controllerservlet" method="GET">
 <input type="hidden" name="command" value="LOGIN" />
-BUYER ID:<br/><input type="text" name="buyer id"/>
+BUYER ID:<br/><input type="text" name="buyer id" required/>
 <br/>
 <br/>
-PASSWORD:<br/><input type="password" name="pwd"/>
+PASSWORD:<br/><input type="password" name="pwd" required/>
 <br/>
 <br/>
 <input type="submit" value="login"/>
