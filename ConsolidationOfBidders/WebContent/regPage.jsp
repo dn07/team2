@@ -9,22 +9,22 @@
 <div>
 <form action="controllerservlet" method="GET">
 <input type="hidden" name="command" value="REG" />
-BUYER ID:<br/><input type="text" name="buyer id"/>
+BUYER ID:<br/><input type="text" name="buyer id" required/>
 <br/>
 <br/>
-FIRST NAME:<br/><input type="text" name="fname"/>
+FIRST NAME:<br/><input type="text" name="fname" required/>
 <br/>
 <br/>
-LAST NAME:<br/><input type="text" name="lname"/>
+LAST NAME:<br/><input type="text" name="lname" required/>
 <br/>
 <br/>
-PHONE NUMBER:<br/><input type="number" name="phone number"/>
+PHONE NUMBER:<br/><input type="number" name="phone number" required/>
 <br/>
 <br/>
-EMAIL:<br/><input type="email" name="email"/>
+EMAIL:<br/><input type="email" name="email" required/>
 <br/>
 <br/>
-PASSWORD:<br/><input type="password" name="pwd"/>
+PASSWORD:<br/><input type="password" name="pwd" required/>
 <br/>
 <br/>
 <input type="submit" value="submit"/>
