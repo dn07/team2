@@ -1,2 +1,2 @@
 # team2
-minor changes made after testing and pushed by 18BCE0310(ID:Bhavroy07) to project Consolidation of bidders
+This project was part of Software Design and Development Course!
